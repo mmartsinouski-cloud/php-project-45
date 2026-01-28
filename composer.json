@@ -1,0 +1,17 @@
+{
+    "name": "hexlet/code",
+    "description": "",
+    "type": "project",
+    "autoload": {
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Your Name",
+            "email": "your@email.com"
+        }
+    ],
+    "require": {}
+}
