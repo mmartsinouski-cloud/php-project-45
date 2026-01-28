@@ -6,8 +6,11 @@
         "bin/brain-games"
     ],
     "autoload": {
+        "psr-4": {
+            "BrainGames\\": "src/"
+        },
         "files": [
-            "src/functions.php"
+            "src/Cli.php"
         ]
     },
     "authors": [
@@ -17,5 +20,7 @@
         }
     ],
     "license": "MIT",
-    "require": {}
+    "require": {
+        "wp-cli/php-cli-tools": "^0.12.7"
+    }
 }
