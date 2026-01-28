@@ -2,6 +2,9 @@
     "name": "hexlet/code",
     "description": "",
     "type": "project",
+    "bin": [
+        "bin/brain-games"
+    ],
     "autoload": {
         "files": [
             "src/functions.php"
@@ -13,5 +16,6 @@
             "email": "your@email.com"
         }
     ],
+    "license": "MIT",
     "require": {}
 }
