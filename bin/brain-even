@@ -1,0 +1,35 @@
+#!/usr/bin/env php
+<?php
+
+namespace BrainGames;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use function cli\line;
+use function cli\prompt;
+
+const ROUNDS_COUNT = 3;
+
+function isEven(int $number): bool
+{
+    return $number % 2 === 0;
+}
+
+function even()
+{
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
+        line('Answer "yes" if the number is even, otherwise answer "no".');
+        $number = random_int(0, 100);
+        line("Question: %s", $number);
+        $correctAnswer = isEven($number) ? 'yes' : 'no';
+        $answer = prompt('Your answer: ');
+        if ($answer === $correctAnswer) {
+            line('Correct');
+        } else {
+            return line("'%s' is wrong answer ;(. Correct answer was '%s'.", $answer, $correctAnswer);
+        }
+    }
+    //line('Congratulations, ');
+}
+
+even();
