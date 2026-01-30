@@ -1,0 +1,44 @@
+#!/usr/bin/env php
+<?php
+
+namespace BrainGames;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use function cli\line;
+use function cli\prompt;
+
+const ROUNDS_COUNT = 3;
+
+function run()
+{
+    line('What number is missing in the progression?');
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
+        $result = makeProgresssion();
+        line("Question: %s", implode(' ', $result[0]) . "\n");
+        $answer = (int)prompt('Your answer: ');
+        if ($answer === $result[1]) {
+            line('Correct!');
+        } else {
+            return line("'%s' is wrong answer ;(. Correct answer was '%s'.\n Let's try again", $answer, $result[1]);
+        }
+    }
+}
+
+function makeProgresssion()
+{
+    $firstIndexArray = random_int(0, 15);
+    $step = random_int(0, 6);
+    $array = [];
+    for ($i = 0; $i < 10; $i++) {
+        $temp = $firstIndexArray + $step;
+        $array[] = $temp;
+        $firstIndexArray = $temp;
+    }
+    $randomIndexFromArray = random_int(0, 9);
+    $correctAnswer = $array[$randomIndexFromArray];
+    $array[$randomIndexFromArray] = '..';
+    return [$array, $correctAnswer];
+}
+
+run();
