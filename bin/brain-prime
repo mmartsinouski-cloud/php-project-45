@@ -1,0 +1,30 @@
+#!/usr/bin/env php
+<?php
+
+namespace BrainGames;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use function cli\line;
+use function cli\prompt;
+
+const ROUNDS_COUNT = 3;
+
+function prime()
+{
+    line('Answer "yes" if given number is prime. Otherwise answer "no".?');
+    $number = 0;
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
+        $number = random_int(0, 100);
+        line('Question: %s', $number);
+        $correctAnswer = gmp_prob_prime($number) ? 'yes' : 'no';
+        $answer = prompt('Your answer: ');
+        if ($correctAnswer === $answer) {
+            line('Correct!');
+        } else {
+            return line("'%s' is wrong answer ;(. Correct answer was '%s'.\n Let's try again", $answer, $correctAnswer);
+        }
+    }
+}
+
+prime();
