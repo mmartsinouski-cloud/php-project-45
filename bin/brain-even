@@ -26,7 +26,7 @@ function even()
         if ($answer === $correctAnswer) {
             line('Correct');
         } else {
-            return line("'%s' is wrong answer ;(. Correct answer was '%s'.", $answer, $correctAnswer);
+            return line("'%s' is wrong answer ;(. Correct answer was '%s'.\n Let's try again", $answer, $correctAnswer);
         }
     }
     //line('Congratulations, ');
