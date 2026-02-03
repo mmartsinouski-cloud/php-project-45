@@ -2,6 +2,7 @@
 
 namespace BrainGames\Games\Calc;
 
+use Exception;
 use function BrainGames\Engine\runGame;
 
 const DESCRIPTION = 'What is the result of the expression?';
