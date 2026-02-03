@@ -1,45 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-namespace BrainGames;
-
 require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../src/Engine.php';  // ← явное подключение
+require_once __DIR__ . '/../src/Games/Calc.php';  // ← явное подключение
 
-use function cli\line;
-use function cli\prompt;
-
-const ROUNDS_COUNT = 3;
-
-function calc()
-{
-    line('What is the result of the expression?');
-    $operation = ['+', '-', '*'];
-    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
-        $numberFirst = random_int(0, 100);
-        $numberSecond = random_int(0, 100);
-        $randIndex = random_int(0, 2);
-        $operationKeys = $operation[$randIndex];
-        $correctAnswer = isCalc($operationKeys, $numberFirst, $numberSecond);
-        line("Question: %s %s %s", $numberFirst, $operationKeys, $numberSecond);
-        $answer = (int)prompt('Your answer: ');
-        if ($answer === $correctAnswer) {
-            line('Correct!');
-        } else {
-            return line("'%s' is wrong answer ;(. Correct answer was '%s'.\n Let's try again", $answer, $correctAnswer);
-        }
-        $operationKeys = [];
-    }
-}
-
-function isCalc($operation, $numberFirst, $numberSecond)
-{
-    if ($operation === '+') {
-        return $numberFirst + $numberSecond;
-    } elseif ($operation === '-') {
-        return $numberFirst - $numberSecond;
-    } elseif ($operation === '*') {
-        return $numberFirst * $numberSecond;
-    }
-}
-
-calc();
+\BrainGames\Games\Calc\run();

@@ -1,4 +1,9 @@
+#!/usr/bin/env php
 <?php
 
-echo "php bin/brain-games.php
-Welcome to the Brain Games!";
+use function BrainGames\Engine\welcomeAndGreet;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../src/Engine.php';
+
+welcomeAndGreet();
