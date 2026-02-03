@@ -28,6 +28,6 @@ function calculate(int $num1, int $num2, string $operator): int
         '+' => $num1 + $num2,
         '-' => $num1 - $num2,
         '*' => $num1 * $num2,
-        default => throw new \Exception("Unknown operator: $operator"),
+        default => throw new \InvalidArgumentException("Unknown operator: $operator"),
     };
 }
