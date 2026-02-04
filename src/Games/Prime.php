@@ -9,7 +9,7 @@ const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no
 function run(): void
 {
     runGame(DESCRIPTION, function () {
-        $number = rand(2, 100);
+        $number = random_int(2, 100);
         $correctAnswer = isPrime($number) ? 'yes' : 'no';
         return [(string) $number, $correctAnswer];
     });

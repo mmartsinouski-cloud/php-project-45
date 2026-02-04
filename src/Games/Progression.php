@@ -9,9 +9,9 @@ const DESCRIPTION = 'What number is missing in the progression?';
 function run(): void
 {
     runGame(DESCRIPTION, function () {
-        $start = rand(1, 20);
-        $step = rand(2, 5);
-        $hiddenPosition = rand(0, 9);
+        $start = random_int(1, 20);
+        $step = random_int(2, 5);
+        $hiddenPosition = random_int(0, 9);
 
         $progression = makeProgression($start, $step, 10);
         $correctAnswer = (string) $progression[$hiddenPosition];

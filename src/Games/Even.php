@@ -14,7 +14,7 @@ function isEven(int $number): bool
 function run(): void
 {
     runGame(DESCRIPTION, function () {
-        $number = rand(0, 100);
+        $number = random_int(0, 100);
         $correctAnswer = isEven($number) ? 'yes' : 'no';
         return [$number, $correctAnswer];
     });

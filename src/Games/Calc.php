@@ -10,9 +10,9 @@ const OPERATORS = ['+', '-', '*'];
 function run(): void
 {
     runGame(DESCRIPTION, function () {
-        $num1 = rand(1, 20);
-        $num2 = rand(1, 20);
-        $randIndexOperators = rand(0, 2);
+        $num1 = random_int(1, 20);
+        $num2 = random_int(1, 20);
+        $randIndexOperators = random_int(0, 2);
         $operator = OPERATORS[$randIndexOperators];
 
         $question = "$num1 $operator $num2";
